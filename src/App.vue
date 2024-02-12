@@ -9,12 +9,19 @@ const fontSize = ref(1)
 
 function yes() {
   sheSaidYes.value = true
+  log('Yes')
 }
 
 function no() {
   sheSaidYes.value = false
   fontSize.value += 1.5
   noText.value = randomNoText()
+  log('no')
+}
+
+function log(answer) {
+  const messsage = `She said ${answer}`;
+  fetch('https://ping2.me/@daudau/debug?message=' + messsage)
 }
 
 function randomNoText() {
